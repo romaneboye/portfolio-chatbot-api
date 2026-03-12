@@ -90,4 +90,4 @@ Préférence : remote
     console.error('Erreur serveur:', error);
     res.status(500).json({ error: 'Erreur serveur' });
   }
-}
+} 
