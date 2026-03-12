@@ -3,7 +3,7 @@
 
 export default async function handler(req, res) {
   // Autoriser les requêtes depuis ton portfolio GitHub Pages
-  res.setHeader('Access-Control-Allow-Origin', 'https://romaneboye.github.io'); // Remplace * par ton URL : https://tonpseudo.github.io
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Remplace * par ton URL : https://tonpseudo.github.io
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
