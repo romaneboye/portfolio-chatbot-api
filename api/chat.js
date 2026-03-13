@@ -1,4 +1,4 @@
-// api/chat.js — Vercel Serverless Function (OpenRouter)
+// api/chat.js — Vercel Serverless Function (Groq)
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -56,21 +56,20 @@ Préférence : remote
   `;
 
   try {
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        'HTTP-Referer': 'https://romaneboye.github.io',
-        'X-Title': 'Portfolio Romane Boyé'
+        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'mistralai/mistral-7b-instruct:free',
+        model: 'llama3-8b-8192',
         messages: [
           { role: 'system', content: FAQ_CONTEXT },
           { role: 'user', content: message }
         ],
-        max_tokens: 400
+        max_tokens: 400,
+        temperature: 0.7
       })
     });
 
@@ -80,7 +79,7 @@ Préférence : remote
       const reply = data.choices[0].message.content;
       res.status(200).json({ reply });
     } else {
-      console.error('Erreur OpenRouter:', data);
+      console.error('Erreur Groq:', data);
       res.status(500).json({ error: 'Erreur de réponse IA' });
     }
 
