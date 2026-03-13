@@ -1,4 +1,4 @@
-// api/chat.js — Vercel Serverless Function (Gemini)
+// api/chat.js — Vercel Serverless Function (OpenRouter)
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -56,32 +56,31 @@ Préférence : remote
   `;
 
   try {
-    const response = await fetch(
-`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          system_instruction: {
-            parts: [{ text: FAQ_CONTEXT }]
-          },
-          contents: [
-            { role: 'user', parts: [{ text: message }] }
-          ],
-          generationConfig: {
-            maxOutputTokens: 400,
-            temperature: 0.7
-          }
-        })
-      }
-    );
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        'HTTP-Referer': 'https://romaneboye.github.io',
+        'X-Title': 'Portfolio Romane Boyé'
+      },
+      body: JSON.stringify({
+        model: 'mistralai/mistral-7b-instruct:free',
+        messages: [
+          { role: 'system', content: FAQ_CONTEXT },
+          { role: 'user', content: message }
+        ],
+        max_tokens: 400
+      })
+    });
 
     const data = await response.json();
 
-    if (data.candidates && data.candidates[0]) {
-      const reply = data.candidates[0].content.parts[0].text;
+    if (data.choices && data.choices[0]) {
+      const reply = data.choices[0].message.content;
       res.status(200).json({ reply });
     } else {
-      console.error('Erreur Gemini:', data);
+      console.error('Erreur OpenRouter:', data);
       res.status(500).json({ error: 'Erreur de réponse IA' });
     }
 
@@ -89,4 +88,4 @@ Préférence : remote
     console.error('Erreur serveur:', error);
     res.status(500).json({ error: 'Erreur serveur' });
   }
-} 
+}
