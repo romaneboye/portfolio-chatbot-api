@@ -1,4 +1,4 @@
-// api/chat.js — Vercel Serverless Function (Groq)
+// api/chat.js — Vercel Serverless Function (Groq) v2
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
