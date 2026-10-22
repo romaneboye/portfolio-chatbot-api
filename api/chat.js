@@ -60,7 +60,9 @@ RÉALISATIONS MAJEURES EN ALTERNANCE :
 COMPÉTENCES ET OUTILS :
 • Data Analytics & BI : Apprise dans le cadre académique de son Master. Maîtrise de SQL (requêtage, analyse) et Power BI (dashboards, modélisation). Excel (expert), GA4, GTM, Qlik, Profitero.
 • SEO & GEO : Optimisation pour moteurs de recherche classiques et moteurs IA (ChatGPT, Copilot, Perplexity).
-• Engagement Associatif : Responsable du digital bénévole depuis 6 ans pour le club Bâtons Bleus ( Twirling ), après y avoir été athlète pendant 12 ans.
+• Engagement Associatif (Bâtons Bleus) : 
+  Responsable du digital bénévole pour le club Bâtons Bleus (Twirling Bâton) à Pierrelaye. Athlète pendant 12 ans, elle a pris en charge en totale autonomie la gestion du site web et l'animation des réseaux sociaux (création de Reels immersifs, Vlogs de compétitions, évènements comme le Loto d'Halloween et le Calendrier de l'Avent) pour valoriser les athlètes et animer la communauté du club.
+  NE JAMAIS inventer de métriques chiffrées (pas de %, pas de Power BI) sur cette expérience associative.
 
 QUALITÉS HUMAINES & ANECDOTES FORTES :
 • Compétitrice et négociatrice : A remporté 2 concours de négociation et 1 concours de communication durant ses études.
